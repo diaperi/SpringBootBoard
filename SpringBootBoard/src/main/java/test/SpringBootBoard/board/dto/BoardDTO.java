@@ -2,6 +2,7 @@ package test.SpringBootBoard.board.dto;
 
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
+import test.SpringBootBoard.board.entity.BoardEntity;
 
 import java.time.LocalDateTime;
 
@@ -32,5 +33,19 @@ public class BoardDTO {
         this.boardTitle = boardTitle;
         this.boardHits = boardHits;
         this.boardCreatedTime = boardCreatedTime;
+    }
+
+    public static BoardDTO toBoardDTO(BoardEntity boardEntity) {
+        BoardDTO boardDTO = new BoardDTO();
+        boardDTO.setId(boardEntity.getId());
+        boardDTO.setBoardWriter(boardEntity.getBoardWriter());
+        boardDTO.setBoardPass(boardEntity.getBoardPass());
+        boardDTO.setBoardTitle(boardEntity.getBoardTitle());
+        boardDTO.setBoardContents(boardEntity.getBoardContents());
+        boardDTO.setBoardHits(boardEntity.getBoardHits());
+        boardDTO.setBoardCreatedTime(boardEntity.getCreatedTime());
+        boardDTO.setBoardUpdatedTime(boardEntity.getUpdatedTime());
+
+        return boardDTO;
     }
 }
