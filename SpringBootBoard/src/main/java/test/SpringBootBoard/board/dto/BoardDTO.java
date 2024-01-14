@@ -35,6 +35,8 @@ public class BoardDTO {
         this.boardCreatedTime = boardCreatedTime;
     }
 
+
+
     public static BoardDTO toBoardDTO(BoardEntity boardEntity) {
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setId(boardEntity.getId());
