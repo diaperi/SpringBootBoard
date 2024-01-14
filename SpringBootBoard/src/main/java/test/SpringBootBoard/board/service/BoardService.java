@@ -54,4 +54,13 @@ public class BoardService {
             return null;
         }
     }
+
+    // spring data jpa는 따로 update를 위한 메서드는 없음.
+    // save 가지고 업데이트, 인서트도 함.
+    // 업데이트, 인서트를 구분하는 기준은 id 값의 유무
+    public BoardDTO update(BoardDTO boardDTO) {
+        BoardEntity boardEntity = BoardEntity.toUpdateEntity(boardDTO);
+        boardRepository.save(boardEntity);
+        return findById(boardDTO.getId());
+    }
 }
