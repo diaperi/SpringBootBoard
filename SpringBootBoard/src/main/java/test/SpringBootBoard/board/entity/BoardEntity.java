@@ -53,6 +53,7 @@ public class BoardEntity extends BaseEntity {
 
     public static BoardEntity toUpdateEntity(BoardDTO boardDTO) {
         BoardEntity boardEntity = new BoardEntity();
+        // id가 있어야 update 쿼리 전달 가능
         boardEntity.setId(boardDTO.getId());
         boardEntity.setBoardWriter(boardDTO.getBoardWriter());
         boardEntity.setBoardPass(boardDTO.getBoardPass());
